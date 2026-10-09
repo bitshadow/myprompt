@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f4">
+  <meta name="description" content="A calm, searchable home for the prompts you want to keep.">
+  <title>MyPrompt — Your prompt library</title>
+  <style>
+    :root{color-scheme:light;--bg:#f7f7f4;--panel:#fff;--ink:#20211f;--muted:#777a73;--line:#e8e9e3;--accent:#b8ef72;--accent-ink:#243118;--soft:#f0f1ec;--shadow:0 10px 30px rgba(32,33,31,.045)}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #a2d75c;outline-offset:2px}
+    .shell{max-width:1220px;margin:0 auto;padding:30px 28px 56px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:50px}.brand{display:flex;align-items:center;gap:11px;font-weight:750;letter-spacing:-.04em;font-size:21px}.logo{display:grid;place-items:center;width:34px;height:34px;border-radius:11px;background:var(--ink);color:white;font-size:17px}.top-actions{display:flex;align-items:center;gap:10px}.quiet-button,.primary-button,.icon-button,.filter-button{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:12px;padding:10px 14px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:transform .15s,border-color .15s}.quiet-button:hover,.icon-button:hover,.filter-button:hover{border-color:#c9ccc1}.primary-button{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}.primary-button:hover{transform:translateY(-1px)}.hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:30px}.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:11px;font-weight:800;color:var(--muted);margin:0 0 12px}.hero h1{font-size:clamp(36px,5vw,58px);line-height:1.03;letter-spacing:-.065em;margin:0;max-width:700px;font-weight:750}.hero h1 span{color:#8b8e84}.hero p{margin:15px 0 0;color:var(--muted);font-size:16px}.stats{display:flex;gap:22px;flex-shrink:0;padding-bottom:4px}.stat{min-width:62px}.stat strong{display:block;font-size:23px;letter-spacing:-.04em}.stat span{color:var(--muted);font-size:12px}.toolbar{display:flex;gap:12px;align-items:center;margin:34px 0 18px}.search-wrap{flex:1;position:relative}.search-wrap svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:#8b8e84}.search{width:100%;height:46px;border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:0 16px 0 44px;color:var(--ink)}.search::placeholder{color:#a0a39b}.filter-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:25px}.filter-button{padding:8px 13px;border-radius:999px;font-size:13px;color:#60635c}.filter-button.active{background:var(--ink);color:#fff;border-color:var(--ink)}.filter-spacer{flex:1}.sort-select{background:transparent;border:0;color:var(--muted);padding:8px;font-size:13px;max-width:150px}.section-head{display:flex;align-items:center;justify-content:space-between;margin:0 0 15px}.section-head h2{font-size:15px;margin:0;font-weight:700}.section-head span{color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.prompt-card{background:var(--panel);border:1px solid var(--line);border-radius:19px;padding:20px;min-height:245px;display:flex;flex-direction:column;box-shadow:var(--shadow);transition:transform .18s,border-color .18s}.prompt-card:hover{transform:translateY(-2px);border-color:#d4d7cd}.card-top{display:flex;justify-content:space-between;align-items:center;gap:10px}.category{font-size:11px;font-weight:750;letter-spacing:.035em;text-transform:uppercase;color:#676b60;background:var(--soft);padding:5px 9px;border-radius:7px}.card-tools{display:flex;gap:3px}.icon-button{border:0;background:transparent;color:#8a8d85;width:30px;height:30px;padding:0;border-radius:9px}.icon-button.fav{color:#4f762b}.prompt-card h3{font-size:17px;letter-spacing:-.025em;margin:15px 0 7px;line-height:1.3}.preview{color:#777a73;font-size:13px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;white-space:pre-wrap}.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}.tag{font-size:11px;color:#7a7d75;background:#f7f7f4;border:1px solid #eeefe9;padding:3px 7px;border-radius:6px}.card-bottom{margin-top:auto;padding-top:18px;display:flex;align-items:center;justify-content:space-between;gap:10px}.updated{font-size:11px;color:#999c94}.copy-button{background:#fff;border:1px solid var(--line);border-radius:9px;padding:7px 11px;font-size:12px;font-weight:700;color:#343630}.copy-button:hover{background:var(--soft)}.empty{grid-column:1/-1;text-align:center;padding:70px 20px;background:var(--panel);border:1px dashed #d9dcd2;border-radius:20px}.empty-icon{font-size:30px;margin-bottom:12px}.empty h3{margin:0 0 6px;letter-spacing:-.025em}.empty p{color:var(--muted);margin:0 auto 18px;max-width:380px}.footer{display:flex;justify-content:space-between;gap:16px;margin-top:36px;color:#999c94;font-size:12px}.footer a{color:inherit}.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#22241f;color:white;padding:11px 16px;border-radius:12px;box-shadow:0 8px 30px #0002;opacity:0;pointer-events:none;transition:.2s;z-index:20}.toast.show{opacity:1;transform:translate(-50%,0)}.modal-backdrop{position:fixed;inset:0;background:#17191366;display:none;align-items:center;justify-content:center;padding:20px;z-index:10}.modal-backdrop.open{display:flex}.modal{width:min(100%,560px);max-height:90vh;overflow:auto;background:var(--panel);border-radius:22px;padding:25px;box-shadow:0 24px 80px #0002}.modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}.modal-head h2{font-size:22px;letter-spacing:-.04em;margin:0}.close-button{border:0;background:var(--soft);border-radius:9px;width:34px;height:34px;font-size:20px;color:var(--ink)}.field{display:flex;flex-direction:column;gap:6px;margin-bottom:15px}.field label{font-size:12px;font-weight:750;color:#5f625a}.field input,.field textarea,.field select{border:1px solid var(--line);border-radius:11px;background:#fff;padding:11px 12px;color:var(--ink);width:100%}.field textarea{min-height:150px;resize:vertical;line-height:1.5}.field input::placeholder,.field textarea::placeholder{color:#aaada5}.field-hint{font-size:11px;color:var(--muted)}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.modal-actions{display:flex;justify-content:space-between;gap:10px;margin-top:22px}.modal-actions-right{display:flex;gap:8px}.danger-button{border:1px solid #f0d9d5;background:#fff8f6;color:#a83d2c;border-radius:11px;padding:10px 13px;font-weight:650}.mobile-add{display:none}
+    @media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{align-items:flex-start;flex-direction:column}.stats{padding:0}.topbar{margin-bottom:38px}}
+    @media(max-width:600px){.shell{padding:20px 16px 38px}.topbar{margin-bottom:38px}.brand{font-size:19px}.top-actions .quiet-button{display:none}.hero h1{font-size:43px}.hero p{font-size:14px}.stats{gap:28px}.toolbar{margin-top:25px}.toolbar>.primary-button{display:none}.grid{grid-template-columns:1fr;gap:11px}.prompt-card{min-height:220px}.filter-spacer{display:none}.sort-select{margin-left:auto}.footer{flex-direction:column}.mobile-add{display:inline-flex;position:fixed;right:18px;bottom:18px;width:54px;height:54px;border-radius:18px;border:0;background:var(--accent);color:var(--accent-ink);font-size:27px;box-shadow:0 6px 24px #0002;z-index:5}.form-grid{grid-template-columns:1fr;gap:0}.modal{padding:20px}.modal-backdrop{padding:10px}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand"><div class="logo" aria-hidden="true">✳</div>myprompt<span style="color:#a4a79e">.</span></div>
+      <div class="top-actions">
+        <button class="quiet-button" id="importBtn" type="button">↑ Import</button>
+        <button class="quiet-button" id="exportBtn" type="button">↓ Export</button>
+        <button class="primary-button" id="newPromptBtn" type="button">＋ New prompt</button>
+      </div>
+    </header>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Your personal prompt library</p>
+        <h1>Good prompts deserve<br><span>a place to live.</span></h1>
+        <p>Keep your best ideas close. Find them fast. Make something great.</p>
+      </div>
+      <div class="stats" aria-label="Library statistics">
+        <div class="stat"><strong id="totalStat">0</strong><span>Prompts</span></div>
+        <div class="stat"><strong id="favoriteStat">0</strong><span>Favorites</span></div>
+      </div>
+    </section>
+    <section class="toolbar" aria-label="Search and create">
+      <div class="search-wrap">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <input class="search" id="searchInput" type="search" placeholder="Search prompts, tags, and ideas…" autocomplete="off" aria-label="Search prompts">
+      </div>
+      <button class="primary-button" id="newPromptBtn2" type="button">＋ New prompt</button>
+    </section>
+    <nav class="filter-row" id="filters" aria-label="Filter prompts">
+      <button class="filter-button active" data-filter="All" type="button">All prompts</button>
+      <button class="filter-button" data-filter="Favorites" type="button">♡ Favorites</button>
+      <span class="filter-spacer"></span>
+      <select class="sort-select" id="sortSelect" aria-label="Sort prompts">
+        <option value="updated">Recently updated</option><option value="title">Title A–Z</option><option value="created">Oldest first</option>
+      </select>
+    </nav>
+    <div class="section-head"><h2 id="listHeading">Your prompts</h2><span id="resultCount">0 prompts</span></div>
+    <section class="grid" id="promptGrid" aria-live="polite"></section>
+    <footer class="footer"><span>Made for the thoughts worth keeping.</span><span>Saved in this browser · <a href="#privacy" id="privacyLink">Your data stays yours</a></span></footer>
+  </main>
+  <button class="mobile-add" id="mobileAdd" type="button" aria-label="Create a new prompt">＋</button>
+  <input type="file" id="importFile" accept=".json,application/json" hidden>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="modal-backdrop" id="modalBackdrop" role="presentation">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head"><h2 id="modalTitle">New prompt</h2><button class="close-button" id="closeModal" type="button" aria-label="Close dialog">×</button></div>
+      <form id="promptForm">
+        <input id="promptId" type="hidden">
+        <div class="field"><label for="promptTitle">Prompt name</label><input id="promptTitle" maxlength="100" required placeholder="e.g. Turn notes into a clear summary"></div>
+        <div class="field"><label for="promptContent">Prompt</label><textarea id="promptContent" required placeholder="Write or paste your prompt here…"></textarea><span class="field-hint">Tip: use {{placeholders}} for details you customize each time.</span></div>
+        <div class="form-grid">
+          <div class="field"><label for="promptCategory">Category</label><select id="promptCategory"><option>Writing</option><option>Coding</option><option>Research</option><option>Work</option><option>Learning</option><option>Creative</option><option>Marketing</option><option>Other</option></select></div>
+          <div class="field"><label for="promptTags">Tags</label><input id="promptTags" placeholder="e.g. email, editing, concise"><span class="field-hint">Separate tags with commas.</span></div>
+        </div>
+        <div class="modal-actions"><button class="danger-button" id="deletePromptBtn" type="button" hidden>Delete</button><div class="modal-actions-right"><button class="quiet-button" id="cancelModal" type="button">Cancel</button><button class="primary-button" type="submit">Save prompt</button></div></div>
+      </form>
+    </section>
+  </div>
+  <script>
+    (() => {
+      const STORAGE_KEY = 'myprompt.prompts.v1';
+      const seedPrompts = [
+        {id:'seed-1',title:'Make writing clearer',category:'Writing',tags:['editing','clarity'],content:'Rewrite the text below to make it clear, concise, and natural. Keep the original meaning and tone. Remove repetition and unnecessary jargon.\n\nText:\n{{paste text}}',favorite:true,createdAt:Date.now()-86400000*4,updatedAt:Date.now()-86400000},
+        {id:'seed-2',title:'Understand a complex topic',category:'Learning',tags:['explain','learning'],content:'Explain {{topic}} to me as if I am curious and intelligent but new to the subject. Start with an intuitive explanation, give a concrete analogy, then explain the key concepts and common misconceptions. End with three questions to check my understanding.',favorite:false,createdAt:Date.now()-86400000*3,updatedAt:Date.now()-86400000*3},
+        {id:'seed-3',title:'Review code like a teammate',category:'Coding',tags:['code review','quality'],content:'Review the following code for correctness, edge cases, readability, performance, and maintainability. Prioritize issues that could cause bugs. For each finding, explain why it matters and suggest a focused fix. Do not rewrite unrelated parts.\n\nCode:\n{{paste code}}',favorite:true,createdAt:Date.now()-86400000*2,updatedAt:Date.now()-86400000*2}
+      ];
+      const $ = id => document.getElementById(id);
+      let prompts = loadPrompts();
+      let activeFilter = 'All';
+      let toastTimer;
+      function loadPrompts() {
+        try {
+          const stored = localStorage.getItem(STORAGE_KEY);
+          if (stored !== null) {
+            const parsed = JSON.parse(stored);
+            return Array.isArray(parsed) ? parsed.filter(isPrompt) : [];
+          }
+        } catch (error) { console.warn('Could not load saved prompts', error); }
+        return seedPrompts;
+      }
+      function isPrompt(p) { return p && typeof p.title === 'string' && typeof p.content === 'string'; }
+      function persist() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(prompts)); } catch (error) { showToast('Could not save. Your browser storage may be full.'); } }
+      function escapeHTML(value) { return String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch])); }
+      function relativeDate(timestamp) {
+        const days = Math.max(0, Math.floor((Date.now() - Number(timestamp || Date.now())) / 86400000));
+        if (days === 0) return 'Updated today';
+        if (days === 1) return 'Updated yesterday';
+        if (days < 7) return 'Updated ' + days + ' days ago';
+        return 'Updated ' + new Date(Number(timestamp)).toLocaleDateString(undefined,{month:'short',day:'numeric'});
+      }
+      function visiblePrompts() {
+        const query = $('searchInput').value.trim().toLowerCase();
+        let result = prompts.filter(p => {
+          const matchesFilter = activeFilter === 'All' || (activeFilter === 'Favorites' ? p.favorite : p.category === activeFilter);
+          const searchable = [p.title,p.content,p.category,...(p.tags || [])].join(' ').toLowerCase();
+          return matchesFilter && (!query || searchable.includes(query));
+        });
+        const sort = $('sortSelect').value;
+        result.sort((a,b) => sort === 'title' ? a.title.localeCompare(b.title) : sort === 'created' ? Number(a.createdAt||0)-Number(b.createdAt||0) : Number(b.updatedAt||0)-Number(a.updatedAt||0));
+        return result;
+      }
+      function renderFilters() {
+        const categories = [...new Set(prompts.map(p => p.category || 'Other'))].sort();
+        const filters = $('filters');
+        filters.querySelectorAll('[data-category="true"]').forEach(el => el.remove());
+        const anchor = filters.querySelector('.filter-spacer');
+        categories.forEach(category => {
+          const button = document.createElement('button');
+          button.type = 'button'; button.className = 'filter-button' + (activeFilter === category ? ' active' : '');
+          button.dataset.filter = category; button.dataset.category = 'true'; button.textContent = category;
+          filters.insertBefore(button, anchor);
+        });
+        filters.querySelectorAll('[data-filter]').forEach(btn => btn.classList.toggle('active', btn.dataset.filter === activeFilter));
+      }
+      function render() {
+        renderFilters();
+        const items = visiblePrompts();
+        $('totalStat').textContent = prompts.length;
+        $('favoriteStat').textContent = prompts.filter(p => p.favorite).length;
+        $('resultCount').textContent = items.length + (items.length === 1 ? ' prompt' : ' prompts');
+        $('listHeading').textContent = activeFilter === 'All' ? 'Your prompts' : activeFilter === 'Favorites' ? 'Your favorites' : activeFilter;
+        const grid = $('promptGrid');
+        if (!items.length) {
+          const hasQuery = $('searchInput').value.trim();
+          grid.innerHTML = '<div class="empty"><div class="empty-icon">✳</div><h3>' + (hasQuery ? 'No prompts found' : 'A little space for your ideas') + '</h3><p>' + (hasQuery ? 'Try another search or change your filters.' : 'Save a prompt you love, and it’ll be here whenever you need it.') + '</p>' + (!hasQuery && activeFilter === 'All' ? '<button class="primary-button" data-action="new" type="button">＋ Create your first prompt</button>' : '') + '</div>';
+          return;
+        }
+        grid.innerHTML = items.map(p => {
+          const tags = (p.tags || []).slice(0,4).map(tag => '<span class="tag">#' + escapeHTML(tag) + '</span>').join('');
+          return '<article class="prompt-card" data-id="' + escapeHTML(p.id) + '">' +
+            '<div class="card-top"><span class="category">' + escapeHTML(p.category || 'Other') + '</span><div class="card-tools">' +
+            '<button class="icon-button ' + (p.favorite ? 'fav' : '') + '" data-action="favorite" data-id="' + escapeHTML(p.id) + '" type="button" aria-label="' + (p.favorite ? 'Remove from favorites' : 'Add to favorites') + '" title="Favorite">' + (p.favorite ? '♥' : '♡') + '</button>' +
+            '<button class="icon-button" data-action="edit" data-id="' + escapeHTML(p.id) + '" type="button" aria-label="Edit prompt" title="Edit">✎</button></div></div>' +
+            '<h3>' + escapeHTML(p.title) + '</h3><div class="preview">' + escapeHTML(p.content) + '</div>' +
+            (tags ? '<div class="tags">' + tags + '</div>' : '') +
+            '<div class="card-bottom"><span class="updated">' + relativeDate(p.updatedAt) + '</span><button class="copy-button" data-action="copy" data-id="' + escapeHTML(p.id) + '" type="button">▢ Copy prompt</button></div></article>';
+        }).join('');
+      }
+      function showToast(message) {
+        const toast = $('toast'); toast.textContent = message; toast.classList.add('show');
+        clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove('show'), 2300);
+      }
+      function openModal(prompt) {
+        $('promptForm').reset();
+        $('promptId').value = prompt ? prompt.id : '';
+        $('modalTitle').textContent = prompt ? 'Edit prompt' : 'New prompt';
+        $('promptTitle').value = prompt ? prompt.title : '';
+        $('promptContent').value = prompt ? prompt.content : '';
+        $('promptCategory').value = prompt ? (prompt.category || 'Other') : 'Writing';
+        $('promptTags').value = prompt ? (prompt.tags || []).join(', ') : '';
+        $('deletePromptBtn').hidden = !prompt;
+        $('modalBackdrop').classList.add('open');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => $('promptTitle').focus(), 30);
+      }
+      function closeModal() { $('modalBackdrop').classList.remove('open'); document.body.style.overflow = ''; }
+      function exportPrompts() {
+        const blob = new Blob([JSON.stringify(prompts,null,2)],{type:'application/json'});
+        const url = URL.createObjectURL(blob); const link = document.createElement('a');
+        link.href = url; link.download = 'myprompt-backup-' + new Date().toISOString().slice(0,10) + '.json';
+        document.body.appendChild(link); link.click(); link.remove(); URL.revokeObjectURL(url);
+        showToast('Prompt library exported.');
+      }
+      function importPrompts(file) {
+        const reader = new FileReader();
+        reader.onload = () => {
+          try {
+            const parsed = JSON.parse(reader.result);
+            if (!Array.isArray(parsed) || !parsed.every(isPrompt)) throw new Error('Expected an array of prompts.');
+            const incoming = parsed.map(p => ({id:String(p.id || makeId()),title:p.title,content:p.content,category:String(p.category || 'Other'),tags:Array.isArray(p.tags) ? p.tags.map(String) : [],favorite:Boolean(p.favorite),createdAt:Number(p.createdAt || Date.now()),updatedAt:Number(p.updatedAt || Date.now())}));
+            const replace = confirm('Choose OK to replace your current library, or Cancel to add imported prompts to it.');
+            prompts = replace ? incoming : [...prompts,...incoming.map(p => ({...p,id:makeId()}))];
+            persist(); render(); showToast('Imported ' + incoming.length + ' prompts.');
+          } catch (error) { showToast('That file is not a valid MyPrompt JSON export.'); }
+          $('importFile').value = '';
+        };
+        reader.onerror = () => showToast('Could not read that file.');
+        reader.readAsText(file);
+      }
+      function makeId() { return 'p-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2,8); }
+      function copyPrompt(prompt) {
+        const fallback = () => {
+          const area = document.createElement('textarea'); area.value = prompt.content; area.style.position = 'fixed'; area.style.opacity = '0'; document.body.appendChild(area); area.select();
+          try { document.execCommand('copy'); showToast('Prompt copied to clipboard.'); } catch { showToast('Could not copy automatically. Open the prompt to copy it manually.'); } area.remove();
+        };
+        if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(prompt.content).then(() => showToast('Prompt copied to clipboard.')).catch(fallback);
+        else fallback();
+      }
+      $('newPromptBtn').addEventListener('click', () => openModal());
+      $('newPromptBtn2').addEventListener('click', () => openModal());
+      $('mobileAdd').addEventListener('click', () => openModal());
+      $('closeModal').addEventListener('click', closeModal);
+      $('cancelModal').addEventListener('click', closeModal);
+      $('modalBackdrop').addEventListener('click', e => { if (e.target === $('modalBackdrop')) closeModal(); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape' && $('modalBackdrop').classList.contains('open')) closeModal(); });
+      $('searchInput').addEventListener('input', render);
+      $('sortSelect').addEventListener('change', render);
+      $('filters').addEventListener('click', e => {
+        const button = e.target.closest('[data-filter]');
+        if (!button) return;
+        activeFilter = button.dataset.filter; render();
+      });
+      $('promptGrid').addEventListener('click', e => {
+        const action = e.target.closest('[data-action]');
+        if (!action) return;
+        if (action.dataset.action === 'new') { openModal(); return; }
+        const prompt = prompts.find(p => String(p.id) === action.dataset.id);
+        if (!prompt) return;
+        if (action.dataset.action === 'favorite') { prompt.favorite = !prompt.favorite; prompt.updatedAt = Date.now(); persist(); render(); }
+        if (action.dataset.action === 'edit') openModal(prompt);
+        if (action.dataset.action === 'copy') copyPrompt(prompt);
+      });
+      $('promptForm').addEventListener('submit', e => {
+        e.preventDefault();
+        const id = $('promptId').value;
+        const existing = prompts.find(p => String(p.id) === id);
+        const prompt = {id:id || makeId(),title:$('promptTitle').value.trim(),content:$('promptContent').value.trim(),category:$('promptCategory').value || 'Other',tags:[...new Set($('promptTags').value.split(',').map(t=>t.trim().replace(/^#/,'')).filter(Boolean))],favorite:existing ? Boolean(existing.favorite) : false,createdAt:existing ? existing.createdAt : Date.now(),updatedAt:Date.now()};
+        if (!prompt.title || !prompt.content) return;
+        if (existing) prompts = prompts.map(p => String(p.id) === id ? prompt : p); else prompts.unshift(prompt);
+        persist(); closeModal(); activeFilter = 'All'; $('searchInput').value = ''; render(); showToast(existing ? 'Prompt updated.' : 'Prompt saved.');
+      });
+      $('deletePromptBtn').addEventListener('click', () => {
+        const id = $('promptId').value;
+        const prompt = prompts.find(p => String(p.id) === id);
+        if (!prompt || !confirm('Delete "' + prompt.title + '"? This cannot be undone.')) return;
+        prompts = prompts.filter(p => String(p.id) !== id); persist(); closeModal(); if (activeFilter !== 'All' && activeFilter !== 'Favorites' && !prompts.some(p=>p.category===activeFilter)) activeFilter='All'; render(); showToast('Prompt deleted.');
+      });
+      $('exportBtn').addEventListener('click', exportPrompts);
+      $('importBtn').addEventListener('click', () => $('importFile').click());
+      $('importFile').addEventListener('change', e => { if (e.target.files && e.target.files[0]) importPrompts(e.target.files[0]); });
+      $('privacyLink').addEventListener('click', e => { e.preventDefault(); alert('Your prompts are stored in this browser using localStorage. They are not uploaded to a server or synced to other devices. Use Export to keep a backup before clearing browser data.'); });
+      render();
+    })();
+  </script>
+</body>
+</html>
